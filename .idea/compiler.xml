@@ -6,11 +6,23 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="user-management" />
+        <module name="user.core" />
+        <module name="user.query.api" />
+        <module name="user.cmd.api" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="user-management" target="11" />
+      <module name="user.cmd.api" target="11" />
+      <module name="user.core" target="11" />
+      <module name="user.query.api" target="11" />
     </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="user.cmd.api" options="-parameters" />
+      <module name="user.core" options="-parameters" />
+      <module name="user.query.api" options="-parameters" />
+    </option>
   </component>
 </project>
