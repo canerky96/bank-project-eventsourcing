@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.kaya</groupId>
 	<artifactId>user.query.api</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<name>user.query.api</name>
 	<description>User Query API Project</description>
 	<properties>
@@ -44,6 +44,11 @@
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-test</artifactId>
 			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.axonframework</groupId>
+			<artifactId>axon-spring-boot-starter</artifactId>
+			<version>4.5</version>
 		</dependency>
 	</dependencies>
 
