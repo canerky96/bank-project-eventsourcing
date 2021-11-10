@@ -46,6 +46,11 @@
 			<artifactId>axon-spring-boot-starter</artifactId>
 			<version>4.5.4</version>
 		</dependency>
+		<dependency>
+			<groupId>com.kaya</groupId>
+			<artifactId>user.core</artifactId>
+			<version>1.0.0</version>
+		</dependency>
 	</dependencies>
 
 	<build>
