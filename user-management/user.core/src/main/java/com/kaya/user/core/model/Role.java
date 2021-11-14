@@ -1,4 +1,4 @@
-package com.kaya.user.core.config.model;
+package com.kaya.user.core.model;
 
 import org.springframework.security.core.GrantedAuthority;
 
