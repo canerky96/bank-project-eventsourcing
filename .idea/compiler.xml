@@ -8,6 +8,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="user.core" />
+        <module name="user.oauth2.0" />
         <module name="user.query.api" />
         <module name="user.cmd.api" />
       </profile>
@@ -16,6 +17,7 @@
       <module name="user-management" target="11" />
       <module name="user.cmd.api" target="11" />
       <module name="user.core" target="11" />
+      <module name="user.oauth2.0" target="11" />
       <module name="user.query.api" target="11" />
     </bytecodeTargetLevel>
   </component>
@@ -23,6 +25,7 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="user.cmd.api" options="-parameters" />
       <module name="user.core" options="-parameters" />
+      <module name="user.oauth2.0" options="-parameters" />
       <module name="user.query.api" options="-parameters" />
     </option>
   </component>

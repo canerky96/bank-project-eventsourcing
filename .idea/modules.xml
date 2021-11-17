@@ -6,6 +6,7 @@
       <module fileurl="file://$PROJECT_DIR$/user-management/user-management.iml" filepath="$PROJECT_DIR$/user-management/user-management.iml" />
       <module fileurl="file://$PROJECT_DIR$/user-management/user.cmd.api/user.cmd.api.iml" filepath="$PROJECT_DIR$/user-management/user.cmd.api/user.cmd.api.iml" />
       <module fileurl="file://$PROJECT_DIR$/user-management/user.core/user.core.iml" filepath="$PROJECT_DIR$/user-management/user.core/user.core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/user-management/user.oauth2.0/user.oauth2.0.iml" filepath="$PROJECT_DIR$/user-management/user.oauth2.0/user.oauth2.0.iml" />
       <module fileurl="file://$PROJECT_DIR$/user-management/user.query.api/user.query.api.iml" filepath="$PROJECT_DIR$/user-management/user.query.api/user.query.api.iml" />
     </modules>
   </component>
