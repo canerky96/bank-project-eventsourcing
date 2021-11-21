@@ -1,0 +1,23 @@
+server:
+  port: 2000
+
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: userCmdApi-RegisterUser
+          uri: http://localhost:8081/api/v1/register-user
+          predicates:
+            - Path=/api/v1/register-user
+        - id: userCmdApi-UpdateUser
+          uri: http://localhost:8081/api/v1/update-user/**
+          predicates:
+            - Path=/api/v1/update-user/**
+        - id: userCmdApi-RemoveUser
+          uri: http://localhost:8081/api/v1/remove-user/**
+          predicates:
+            - Path=/api/v1/remove-user/**
+        - id: userQueryApi
+          uri: http://localhost:8082/api/v1/user-lookup/**
+          predicates:
+            - Path=/api/v1/user-lookup/**

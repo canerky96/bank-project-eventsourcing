@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import org.axonframework.commandhandling.gateway.CommandGateway;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,6 +20,7 @@ public class RemoveUserController {
   private final CommandGateway commandGateway;
 
   @DeleteMapping("{id}")
+  @PreAuthorize("hasAuthority('WRITE_PRIVILEGE')")
   public ResponseEntity<BaseResponse> removeUser(@PathVariable("id") String id) {
 
     try {
