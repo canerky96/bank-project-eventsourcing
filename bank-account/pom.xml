@@ -5,15 +5,14 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.springbank</groupId>
-    <artifactId>user-management</artifactId>
+    <artifactId>bank-account</artifactId>
     <version>1.0.0</version>
     <packaging>pom</packaging>
 
     <modules>
-        <module>user.core</module>
-        <module>user.cmd.api</module>
-        <module>user.query.api</module>
-        <module>user.oauth2.0</module>
+        <module>bankacc.core</module>
+        <module>bankacc.cmd.api</module>
+        <module>bankacc.query.api</module>
     </modules>
 
 </project>
