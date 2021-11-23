@@ -21,3 +21,11 @@ spring:
           uri: http://localhost:8082/api/v1/user-lookup/**
           predicates:
             - Path=/api/v1/user-lookup/**
+        - id: bankAccCmdApi-OpenAccount
+          uri: http://localhost:9091/api/v1/open-bank-account
+          predicates:
+            - Path=/api/v1/open-bank-account
+        - id: bankAccCmdApi-DepositFunds
+          uri: http://localhost:9091/api/v1/deposit-funds/**
+          predicates:
+            - Path=/api/v1/deposit-funds/**

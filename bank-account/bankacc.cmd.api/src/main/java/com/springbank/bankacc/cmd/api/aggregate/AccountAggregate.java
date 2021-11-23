@@ -1,7 +1,13 @@
 package com.springbank.bankacc.cmd.api.aggregate;
 
+import com.springbank.bankacc.cmd.api.command.CloseAccountCommand;
+import com.springbank.bankacc.cmd.api.command.DepositFundsCommand;
 import com.springbank.bankacc.cmd.api.command.OpenAccountCommand;
+import com.springbank.bankacc.cmd.api.command.WithdrawFundsCommand;
+import com.springbank.bankacc.core.event.AccountClosedEvent;
 import com.springbank.bankacc.core.event.AccountOpenedEvent;
+import com.springbank.bankacc.core.event.FundsDepositedEvent;
+import com.springbank.bankacc.core.event.FundsWithdrawnEvent;
 import lombok.NoArgsConstructor;
 import org.axonframework.commandhandling.CommandHandler;
 import org.axonframework.eventsourcing.EventSourcingHandler;
@@ -38,4 +44,51 @@ public class AccountAggregate {
     this.balance = event.getOpeningBalance();
   }
 
+  @CommandHandler
+  public void handle(DepositFundsCommand command) {
+    var amount = command.getAmount();
+    var event =
+        FundsDepositedEvent.builder()
+            .id(command.getId())
+            .amount(command.getAmount())
+            .balance(this.balance + amount)
+            .build();
+    AggregateLifecycle.apply(event);
+  }
+
+  @EventSourcingHandler
+  public void on(FundsDepositedEvent event) {
+    this.balance += event.getAmount();
+  }
+
+  @CommandHandler
+  public void handle(WithdrawFundsCommand command) {
+    var amount = command.getAmount();
+    if (this.balance - amount < 0) {
+      throw new IllegalStateException("Withdrawal declined, insufficient funds!");
+    }
+    var event =
+        FundsWithdrawnEvent.builder()
+            .id(command.getId())
+            .amount(command.getAmount())
+            .balance(this.balance - amount)
+            .build();
+    AggregateLifecycle.apply(event);
+  }
+
+  @EventSourcingHandler
+  public void on(FundsWithdrawnEvent event) {
+    this.balance -= event.getAmount();
+  }
+
+  @CommandHandler
+  public void handle(CloseAccountCommand command) {
+    var event = AccountClosedEvent.builder().id(command.getId()).build();
+    AggregateLifecycle.apply(event);
+  }
+
+  @EventSourcingHandler
+  public void on(AccountClosedEvent event) {
+    AggregateLifecycle.markDeleted();
+  }
 }
