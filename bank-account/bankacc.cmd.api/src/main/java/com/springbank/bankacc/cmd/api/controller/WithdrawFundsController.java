@@ -3,7 +3,6 @@ package com.springbank.bankacc.cmd.api.controller;
 import com.springbank.bankacc.cmd.api.command.WithdrawFundsCommand;
 import com.springbank.bankacc.core.dto.BaseResponse;
 import lombok.RequiredArgsConstructor;
-import org.apache.coyote.Response;
 import org.axonframework.commandhandling.gateway.CommandGateway;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
